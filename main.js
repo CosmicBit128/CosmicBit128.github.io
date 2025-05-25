@@ -18,8 +18,8 @@ $(document).ready(() => {
 
 
 // Email
-let user = 'pj1024.mc';
-let domain = 'gmail.com';
+let user = 'janwasila';
+let domain = 'wp.pl';
 $('#email').attr('href', 'mailto:' + user + '@' + domain);
 
 
