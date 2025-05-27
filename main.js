@@ -14,23 +14,12 @@ function main() {
 $(document).ready(() => {
     main();
     $(window).on('resize', main);
+    lang = 'pl';
+    loadLang();
 });
 
 
-// Email
-let user = 'janwasila';
-let domain = 'wp.pl';
-$('#email').attr('href', 'mailto:' + user + '@' + domain);
-
-
-// Ofc i do
-console.log("I use arch, btw");
-
-
-// Language
-langSw = $('#lang-switch');
-langSw.on('change', (event) => {
-    lang = ['en', 'pl'][$(this).prop('selectedIndex')];
+function loadLang() {
     $('nav').children().eq(0).html(langs[lang]['title.home']);
     $('nav').children().eq(1).html(langs[lang]['title.projects']);
     $('nav').children().eq(2).html(langs[lang]['title.contact']);
@@ -46,4 +35,21 @@ langSw.on('change', (event) => {
 
     $('.cos16>p').html(langs[lang]['projects.cos16.description']+' <a href="https://github.com/CosmicBit128/Cos16" target="_blank">GitHub</a>')
     $('.r3d>p').html(langs[lang]['projects.r3d.description']+' <a href="https://github.com/CosmicBit128/R3D" target="_blank">GitHub</a>')
+}
+
+// Email
+let user = 'janwasila';
+let domain = 'wp.pl';
+$('#email').attr('href', 'mailto:' + user + '@' + domain);
+
+
+// Ofc i do
+console.log("I use arch, btw");
+
+
+// Language
+langSw = $('#lang-switch');
+langSw.on('change', (event) => {
+    lang = ['en', 'pl'][$(this).prop('selectedIndex')];
+    loadLang();
 });
