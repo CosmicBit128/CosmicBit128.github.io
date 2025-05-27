@@ -43,6 +43,9 @@ body {
     color: var(--text-color);
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 nav {
@@ -58,8 +61,6 @@ nav {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
     background-color: var(--secondary-color);
     width: calc(100% - 48px);
     margin: 0 auto;
@@ -91,6 +92,7 @@ footer {
 main {
     margin: 12px 32px;
     text-align: justify;
+    flex: 1;
 }
 
 table,tr,th,td {
