@@ -50,6 +50,6 @@ console.log("I use arch, btw");
 // Language
 langSw = $('#lang-switch');
 langSw.on('change', (event) => {
-    lang = ['en', 'pl'][lamgSw.prop('selectedIndex')];
+    lang = ['en', 'pl'][langSw.prop('selectedIndex')];
     loadLang();
 });
