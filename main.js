@@ -28,19 +28,22 @@ console.log("I use arch, btw");
 
 
 // Language
-lang = 'pl';
-$('nav').children().eq(0).html(langs[lang]['title.home']);
-$('nav').children().eq(1).html(langs[lang]['title.projects']);
-$('nav').children().eq(2).html(langs[lang]['title.contact']);
+langSw = $('#lang-switch');
+langSw.on('change', (event) => {
+    lang = ['en', 'pl'][$(this).prop('selectedIndex')];
+    $('nav').children().eq(0).html(langs[lang]['title.home']);
+    $('nav').children().eq(1).html(langs[lang]['title.projects']);
+    $('nav').children().eq(2).html(langs[lang]['title.contact']);
+    
+    if (document.URL.search('projects')!=-1) {
+        $('title').html(langs[lang]['title.projects']);
+    } else if (document.URL.search('contact')!=-1) {
+        $('title').html(langs[lang]['title.contact']);
+    } else {
+        $('title').html(langs[lang]['title.home']);
+        $('main').html(langs[lang]['main'])
+    }
 
-if (document.URL.search('projects')!=-1) {
-    $('title').html(langs[lang]['title.projects']);
-} else if (document.URL.search('contact')!=-1) {
-    $('title').html(langs[lang]['title.contact']);
-} else {
-    $('title').html(langs[lang]['title.home']);
-    $('main').html(langs[lang]['main'])
-}
-
-$('.cos16>p').html(langs[lang]['projects.cos16.description']+' <a href="https://github.com/CosmicBit128/Cos16" target="_blank">GitHub</a>')
-$('.r3d>p').html(langs[lang]['projects.r3d.description']+' <a href="https://github.com/CosmicBit128/R3D" target="_blank">GitHub</a>')
+    $('.cos16>p').html(langs[lang]['projects.cos16.description']+' <a href="https://github.com/CosmicBit128/Cos16" target="_blank">GitHub</a>')
+    $('.r3d>p').html(langs[lang]['projects.r3d.description']+' <a href="https://github.com/CosmicBit128/R3D" target="_blank">GitHub</a>')
+});
