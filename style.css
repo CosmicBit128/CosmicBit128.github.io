@@ -58,6 +58,8 @@ nav {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
     background-color: var(--secondary-color);
     width: calc(100% - 48px);
     margin: 0 auto;
